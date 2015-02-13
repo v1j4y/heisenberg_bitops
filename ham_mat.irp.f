@@ -56,5 +56,5 @@ function sgn(deti,detj)
     integer,INTENT(IN)::deti
     integer,INTENT(IN)::detj
 
-    sgn=+1
+    sgn=1
 end function
