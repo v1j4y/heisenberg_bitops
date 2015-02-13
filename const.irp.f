@@ -29,6 +29,6 @@ BEGIN_PROVIDER [integer,n]
         nbeta=(nsites-ntrou-isz-1)/2
     endif
     nt2=exp(lgamma(float(nsites-ntrou+1))-lgamma(float(nalpha+1))-lgamma(float(nbeta+1)))
-    print *,'nt1=',nt1,nt2
+    print *,'nt1=',nt1,'nt2=',nt2,'nsites=',nsites,'ntrou=',ntrou,'nalpha=',nalpha,'nbeta=',nbeta
     maxdet=n
 END_PROVIDER

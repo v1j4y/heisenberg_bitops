@@ -1,4 +1,4 @@
-BEGIN_PROVIDER [real(8),A,(n,n)]
+BEGIN_PROVIDER [real(8),A,(nt1*nt2,nt1*nt2)]
 
     implicit none
     BEGIN_DOC
@@ -6,19 +6,24 @@ BEGIN_PROVIDER [real(8),A,(n,n)]
     END_DOC
     integer::i,j,deti,detj
     logical::yalt
-    integer::sgn
+    integer::sgn,tmp
     
-    do i=1,countbit
-        deti=add(i,2)
-        do j=1,i
-            A(i,j)=0d0
-            A(j,i)=0d0
-            detj=add(j,2)
-            if(yalt(deti,detj).and. i.ne.j)then
-                A(i,j)=sgn(deti,detj)*1
-                A(j,i)=A(i,j)
+    do i=1,nt1
+    do j=1,nt2
+        do k=1,nt1
+        do l=1,nt2
+            A(i+j,k+l)=0d0
+            tmp=add(i,2)
+            posr=bit_size(tmp)-leadz(tmp)
+            posl=trailz(tmp)+1
+            if((posr-posl).eq.1)then
+                if(yalt(add(j,2),add(l,2))then
+                    A(i+j,k+l)=sgn*1d0
+                endif
             endif
         enddo
+        enddo
+    enddo
     enddo
 
     do i=1,countbit

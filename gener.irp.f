@@ -1,4 +1,6 @@
-BEGIN_PROVIDER [integer,add,(maxdet,4)]
+BEGIN_PROVIDER [integer,addt,(maxdet,2)]
+&BEGIN_PROVIDER [integer,adda,(maxdet,2)]
+&BEGIN_PROVIDER [integer,addb,(maxdet,2)]
 
     implicit none
     BEGIN_DOC
@@ -15,8 +17,8 @@ BEGIN_PROVIDER [integer,add,(maxdet,4)]
     if((bit_size(i)-leadz(i)).le.nsites)then
     if(popcnt(i).eq.(nsites-ntrou))then
         countbit+=1
-        add(countbit,1)=countbit
-        add(countbit,2)=i
+        addt(countbit,1)=countbit
+        addt(countbit,2)=i
 !       write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
     endif
     else
