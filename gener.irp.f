@@ -10,12 +10,13 @@ BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
 
     countbit=0
     do i=1,60
+!   print *,bit_size(i)-leadz(i)
     if((bit_size(i)-leadz(i)).le.nsites)then
-    if(popcnt(i).eq.4)then
+    if(popcnt(i).eq.(nsites-ntrou))then
         countbit+=1
         add(countbit,1)=countbit
         add(countbit,2)=i
-        write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
+!       write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
     endif
     else
     EXIT

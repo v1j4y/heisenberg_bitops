@@ -12,11 +12,16 @@ BEGIN_PROVIDER [real(8),A,(n,n)]
         deti=add(i,2)
         do j=1,i
             detj=add(j,2)
-            if(yalt(deti,detj))then
+            if(yalt(deti,detj).and. i.ne.j)then
                 A(i,j)=sgn(deti,detj)*1
-                A(j,i)=sgn(deti,detj)*1
+                A(j,i)=A(i,j)
+!               print *,A(i,j)
             endif
         enddo
+    enddo
+
+    do i=1,n
+        write(6,*)(A(i,j),j=1,n)
     enddo
 
 
@@ -30,6 +35,7 @@ function yalt(deti,detj)
     integer::i,j,tmp,posr,posl
 
         tmp=XOR(deti,detj)
+        yalt=.FALSE.
         if(popcnt(tmp).eq.2)then
             posr=bit_size(tmp)-leadz(tmp)
             posl=trailz(tmp)+1
