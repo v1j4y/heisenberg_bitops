@@ -9,7 +9,7 @@ BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
     integer::j,tmp,tmp2
 
     countbit=0
-    i=2**(nsites-1)-2
+    i=2**(nsites-ntrou)-2
     do while(.TRUE.)
 !   print *,bit_size(i)-leadz(i)
     if((bit_size(i)-leadz(i)).le.nsites)then
@@ -17,7 +17,7 @@ BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
         countbit+=1
         add(countbit,1)=countbit
         add(countbit,2)=i
-!       write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
+        write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
     endif
     else
     EXIT

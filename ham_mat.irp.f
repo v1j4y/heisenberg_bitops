@@ -7,10 +7,12 @@ BEGIN_PROVIDER [real(8),A,(n,n)]
     integer::i,j,deti,detj
     logical::yalt
     integer::sgn
-
+    
     do i=1,countbit
         deti=add(i,2)
         do j=1,i
+            A(i,j)=0d0
+            A(j,i)=0d0
             detj=add(j,2)
             if(yalt(deti,detj).and. i.ne.j)then
                 A(i,j)=sgn(deti,detj)*1
@@ -20,11 +22,14 @@ BEGIN_PROVIDER [real(8),A,(n,n)]
         enddo
     enddo
 
-!   do i=1,n
-!       write(6,*)(A(i,j),j=1,n)
-!   enddo
+    do i=1,countbit
+    do j=1,countbit
+        write(6,11)A(i,j)
+    enddo
+        write(6,*)
+    enddo
 
-
+11   FORMAT((F8.2,' '),$)
 END_PROVIDER
 
 function yalt(deti,detj)
@@ -41,8 +46,13 @@ function yalt(deti,detj)
             posl=trailz(tmp)+1
             if((posr-posl).eq.1)then
                 yalt=.TRUE.
+        write(6,14)tmp,tmp
+        write(6,14)deti,deti
+        write(6,14)detj,detj
+        print *,' ',posr,posl
             endif
         endif
+14  FORMAT(B64,I8)
 end function
 
 function sgn(deti,detj)
