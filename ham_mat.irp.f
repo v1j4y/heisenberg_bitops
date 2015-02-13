@@ -17,7 +17,6 @@ BEGIN_PROVIDER [real(8),A,(n,n)]
             if(yalt(deti,detj).and. i.ne.j)then
                 A(i,j)=sgn(deti,detj)*1
                 A(j,i)=A(i,j)
-!               print *,A(i,j)
             endif
         enddo
     enddo
@@ -46,10 +45,6 @@ function yalt(deti,detj)
             posl=trailz(tmp)+1
             if((posr-posl).eq.1)then
                 yalt=.TRUE.
-        write(6,14)tmp,tmp
-        write(6,14)deti,deti
-        write(6,14)detj,detj
-        print *,' ',posr,posl
             endif
         endif
 14  FORMAT(B64,I8)

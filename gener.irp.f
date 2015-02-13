@@ -17,7 +17,7 @@ BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
         countbit+=1
         add(countbit,1)=countbit
         add(countbit,2)=i
-        write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
+!       write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
     endif
     else
     EXIT

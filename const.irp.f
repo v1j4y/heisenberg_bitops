@@ -9,9 +9,9 @@ BEGIN_PROVIDER [integer,n]
     ! provides rank
     END_DOC
     
-    nsites=4
+    nsites=5
     ntrou=2
-    maxdet=1000
     countbit=0
     n=exp(lgamma(float(nsites+1))-lgamma(float(nsites-ntrou+1))-lgamma(float(ntrou+1)))
+    maxdet=n
 END_PROVIDER
