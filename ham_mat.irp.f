@@ -20,9 +20,9 @@ BEGIN_PROVIDER [real(8),A,(n,n)]
         enddo
     enddo
 
-    do i=1,n
-        write(6,*)(A(i,j),j=1,n)
-    enddo
+!   do i=1,n
+!       write(6,*)(A(i,j),j=1,n)
+!   enddo
 
 
 END_PROVIDER

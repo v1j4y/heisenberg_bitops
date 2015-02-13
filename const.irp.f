@@ -9,9 +9,9 @@ BEGIN_PROVIDER [integer,n]
     ! provides rank
     END_DOC
     
-    nsites=4
+    nsites=30
     n=nsites
     ntrou=1
-    maxdet=100
+    maxdet=1000
     countbit=0
 END_PROVIDER

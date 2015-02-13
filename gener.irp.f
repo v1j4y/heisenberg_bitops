@@ -9,7 +9,8 @@ BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
     integer::j,tmp,tmp2
 
     countbit=0
-    do i=1,60
+    i=2**(nsites-1)-2
+    do while(.TRUE.)
 !   print *,bit_size(i)-leadz(i)
     if((bit_size(i)-leadz(i)).le.nsites)then
     if(popcnt(i).eq.(nsites-ntrou))then
@@ -21,7 +22,9 @@ BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
     else
     EXIT
     endif
+    i+=1
     enddo
+    print *,countbit
 
 
 
