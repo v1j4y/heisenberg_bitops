@@ -1,4 +1,4 @@
-BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
+BEGIN_PROVIDER [integer,add,(maxdet,4)]
 
     implicit none
     BEGIN_DOC
@@ -18,6 +18,26 @@ BEGIN_PROVIDER [integer,add,(maxdet,maxdet)]
         add(countbit,1)=countbit
         add(countbit,2)=i
 !       write(6,15)add(countbit,2),add(countbit,1),add(countbit,2),bit_size(i)-leadz(i)
+    endif
+    else
+    EXIT
+    endif
+    i+=1
+    enddo
+    print *,countbit
+
+!C  doing the rest 
+    countbit=0
+    i=2**((nsites-ntrou)-nbeta)-2
+    print *,'i=',i
+    do while(.TRUE.)
+!   print *,bit_size(i)-leadz(i)
+    if((bit_size(i)-leadz(i)).le.(nsites-ntrou))then
+    if(popcnt(i).eq.((nsites-ntrou)-nbeta))then
+        countbit+=1
+        add(countbit,3)=countbit
+        add(countbit,4)=i
+        write(6,15)add(countbit,4),add(countbit,3),add(countbit,4),bit_size(i)-leadz(i)
     endif
     else
     EXIT
