@@ -8,8 +8,8 @@ program heis
     double precision, allocatable :: EVAL(:),EVEC(:,:),tmp(:)
     double precision, allocatable :: W(:),WORK(:),AP(:)
     character*1 JOBZ,UPLO
-    integer LDA,LWORK,INFO
-
+    integer LDA,LWORK,INFO,N
+    N=NDET
     allocate (AP(N*N))
     allocate (W(N))
     allocate (tmp(N))

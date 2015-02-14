@@ -37,12 +37,12 @@ BEGIN_PROVIDER [real(8),A,(ndet,ndet)]
     enddo
     enddo
 
-    do i=1,countbit
-    do j=1,countbit
-        write(6,11)A(i,j)
-    enddo
-        write(6,*)
-    enddo
+!   do i=1,countbit
+!   do j=1,countbit
+!       write(6,11)A(i,j)
+!   enddo
+!       write(6,*)
+!   enddo
 
 11   FORMAT((F8.2,' '),$)
 13  FORMAT(B64,B64)
