@@ -18,7 +18,7 @@ BEGIN_PROVIDER [integer,addt,(nt1,2)]
         countbit+=1
         addt(countbit,1)=countbit
         addt(countbit,2)=i
-!       write(6,15)addt(countbit,2),addt(countbit,1),addt(countbit,2),bit_size(i)-leadz(i)
+        write(6,15)addt(countbit,2),addt(countbit,1),addt(countbit,2),bit_size(i)-leadz(i)
     endif
     else
     EXIT

@@ -8,13 +8,14 @@ BEGIN_PROVIDER [integer,n]
 &BEGIN_PROVIDER [integer,nbeta   ]
 &BEGIN_PROVIDER [integer,nt1     ]
 &BEGIN_PROVIDER [integer,nt2     ]
+&BEGIN_PROVIDER [integer,ndet    ]
 
     implicit none
     BEGIN_DOC
     ! provides rank
     END_DOC
     
-    nsites=5
+    nsites=4
     ntrou=2
     countbit=0
     n=exp(lgamma(float(nsites+1))-lgamma(float(nsites-ntrou+1))-lgamma(float(ntrou+1)))
@@ -31,4 +32,5 @@ BEGIN_PROVIDER [integer,n]
     nt2=exp(lgamma(float(nsites-ntrou+1))-lgamma(float(nalpha+1))-lgamma(float(nbeta+1)))
     print *,'nt1=',nt1,'nt2=',nt2,'nsites=',nsites,'ntrou=',ntrou,'nalpha=',nalpha,'nbeta=',nbeta
     maxdet=n
+    ndet=nt1*nt2
 END_PROVIDER
