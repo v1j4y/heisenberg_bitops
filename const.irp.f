@@ -14,7 +14,7 @@ BEGIN_PROVIDER [integer,n]
     ! provides rank
     END_DOC
     
-    nsites=6
+    nsites=5
     ntrou=2
     countbit=0
     n=exp(lgamma(float(nsites+1))-lgamma(float(nsites-ntrou+1))-lgamma(float(ntrou+1)))
